@@ -35,4 +35,29 @@
   			#{writer}
   		)
   </insert>
+  
+  <select id="read" resultType="org.zerock.vo.BoardVO">
+  	SELECT
+  		*
+  	FROM
+  		tbl_board
+  	where bno = #{bno}
+  </select>
+  
+  <delete id="delete">
+  	DELETE 
+  	FROM
+  		tbl_board
+  	WHERE bno = #{bno}
+  </delete>
+  
+  <update id="update">
+  	UPDATE 
+  		tbl_board
+  	SET
+  		title=#{title},
+  		content=#{content}
+  		
+  </update>
+  
 </mapper>
