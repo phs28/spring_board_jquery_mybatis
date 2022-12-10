@@ -53,5 +53,18 @@ public class BoardMapperTests {
 		log.info("delete.." + de);
 	}
 	
+	@Test
+	public void testUpdate() {
+		
+		BoardVO vo = new BoardVO();
+		vo.setBno(5L);
+		vo.setTitle("수정된 제목");
+		vo.setContent("수정된 내용");
+		vo.setWriter("작성자");
+		
+		mapper.update(vo);
+		
+		log.info(vo);
+	}
 	
 }

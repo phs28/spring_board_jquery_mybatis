@@ -41,7 +41,7 @@
   		*
   	FROM
   		tbl_board
-  	where bno = #{bno}
+  	where bno=#{bno}
   </select>
   
   <delete id="delete">
@@ -56,8 +56,10 @@
   		tbl_board
   	SET
   		title=#{title},
-  		content=#{content}
-  		
+  		content=#{content},
+  		writer=#{writer},
+  		updateDate=sysdate
+  	WHERE bno=#{bno}
   </update>
   
 </mapper>
