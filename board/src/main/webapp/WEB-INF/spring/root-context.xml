@@ -14,7 +14,7 @@
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"/> 
 		<property name="username" value="ojsag"/>
 		<property name="password" value="ojsag"/>
-	</bean>	
+	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"/>
