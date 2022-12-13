@@ -9,8 +9,8 @@
   		SELECT 
   			* 
   		FROM 
-  			tbl_board 
-  		WHERE bno > 0
+  			tbl_board
+  		ORDER BY DESC
   	]]>
   </select>
   
@@ -23,20 +23,20 @@
   	</selectKey>
   	<![CDATA[
   		INSERT INTO
-  		tbl_board
-  		(
-  			bno,
-  			title,
-  			content,
-  			writer
-  		)
-  	VALUES
-  		(
-  			#{bno},
-  			#{title},
-  			#{content},
-  			#{writer}
-  		)
+  			tbl_board
+  			(
+  				bno,
+  				title,
+  				content,
+  				writer
+  			)
+  		VALUES
+  			(
+  				#{bno},
+  				#{title},
+  				#{content},
+  				#{writer}
+  			)
   	]]>
   </insert>
   
@@ -47,7 +47,7 @@
   		FROM
   			tbl_board
 	  	WHERE bno=#{bno}
-	  ]]>
+	]]>
   </select>
   
   <delete id="delete">
@@ -62,13 +62,13 @@
   <update id="update">
   	<![CDATA[
   		UPDATE 
-  		tbl_board
-  	SET
-  		title=#{title},
-  		content=#{content},
-  		writer=#{writer},
-  		updateDate=sysdate
-  	WHERE bno=#{bno}
+  			tbl_board
+  		SET	
+  			title=#{title},
+  			content=#{content},
+  			writer=#{writer},
+  			updateDate=sysdate
+  		WHERE bno=#{bno}
   	]]>
   </update>
   

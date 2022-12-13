@@ -1,39 +1,47 @@
 package org.zerock.controller;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.service.BoardService;
 import org.zerock.vo.BoardVO;
 
-import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@RestController
+@Controller
 @RequestMapping("/board/*")
 @Log4j
-@AllArgsConstructor
 public class BoardController {
 	
+	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
 	
 	@GetMapping("/list")
 	public void getList(Model model) {
 		
-		
+		List<BoardVO> list = service.getList();
 		
 		log.info("list..");
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", list);
+	}
+	
+	@GetMapping("/register")
+	public void registerGET() {
+		
 	}
 	
 	@PostMapping("/register")
-	public String register(BoardVO vo, RedirectAttributes rttr) {
+	public String registerPOST(BoardVO vo, RedirectAttributes rttr) {
 		
 		log.info("BoardVO: " + vo);
 		
