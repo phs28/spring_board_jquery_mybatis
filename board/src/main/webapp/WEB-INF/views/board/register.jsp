@@ -30,12 +30,12 @@
 	                            	<input class="form-control" name="writer">
                                 </div>
                                 <div class="form-group">
-                                    <label>글작성</label>
+                                    <label>글내용</label>
                                     <textarea style="resize: none" class="form-control" rows="3" name="content"></textarea>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-success">글추가</button>
-                                <button type="reset" class="btn btn-danger">다시작성</button>
+                                <button type="submit" class="btn btn-success">글작성</button>
+                                <button type="reset" class="btn btn-danger">다시쓰기</button>
 							</form>
 						</div>
 						<!-- /.panel-body -->

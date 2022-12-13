@@ -47,7 +47,7 @@ public class BoardController {
 		
 		service.register(vo);
 		
-		rttr.addAttribute("result", vo.getBno());
+		rttr.addFlashAttribute("result", vo.getBno());
 		
 		return "redirect:/board/list";
 	}
@@ -68,7 +68,7 @@ public class BoardController {
 		log.info("modify.." + vo);
 		
 		if(service.modify(vo)) {
-			rttr.addAttribute("result", "success");
+			rttr.addFlashAttribute("result", "success");
 		}
 		
 		return "redirect:/board/list";
@@ -80,7 +80,7 @@ public class BoardController {
 		log.info("remove.." + bno);
 		
 		if(service.remove(bno)) {
-			rttr.addAttribute("result", "success");
+			rttr.addFlashAttribute("result", "success");
 		}
 		
 		return "redirect:/board/list";

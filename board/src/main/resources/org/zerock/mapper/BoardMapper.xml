@@ -9,8 +9,9 @@
   		SELECT 
   			* 
   		FROM 
-  			tbl_board
-  		ORDER BY DESC
+  			tbl_board 
+  		WHERE bno > 0
+  		ORDER BY bno DESC
   	]]>
   </select>
   
