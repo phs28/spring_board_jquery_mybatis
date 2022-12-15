@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>글내용</label>
-                                    <textarea style="resize: none" class="form-control" rows="3" name="content"></textarea>
+                                    <textarea style="resize: none" class="form-control" rows="5" name="content"></textarea>
                                 </div>
                                 
                                 <button type="submit" class="btn btn-success">글작성</button>
