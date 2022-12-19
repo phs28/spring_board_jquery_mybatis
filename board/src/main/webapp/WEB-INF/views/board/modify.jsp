@@ -19,6 +19,9 @@
 						</div>
 						<!-- /.panel-heading -->
 						<form id="modifyForm" >
+							<input type="hidden" name="pageNum" value="${cri.pageNum }">
+							<input type="hidden" name="amount" value="${cri.amount }">
+							
 							<div class="panel-body">
 								<div class="form-group">
 		                        	<label>번호</label>
@@ -67,15 +70,22 @@
 					formObj.attr('method', 'POST');
 				} else if(operation === 'list') {
 					formObj.attr('action', '/board/list');
-					formObj.attr('method', 'get');
+					formObj.attr('method', 'GET');
+					
+					let pageNumTag = $("input[name = 'pageNum']").clone();
+					let amountTag = $("input[name = 'amount']").clone();
+					
+					formObj.empty();
+					formObj.append(pageNumTag);
+					formObj.append(amountTag);
 				} else if(operation === 'modify') {
 					formObj.attr('action', '/board/modify');
 					formObj.attr('method', 'POST');
 				}
-				
 				formObj.submit();
 			});
 		});
 	</script>
 	
 	<%@include file="../includes/footer.jsp"%>
+	

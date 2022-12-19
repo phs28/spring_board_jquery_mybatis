@@ -21,7 +21,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 	                        	<label>번호</label>
-	                        	<input class="form-control" name="bno" value="${board.bno }" readonly="readonly"/>
+	                       		<input class="form-control" name="bno" value="${board.bno }" readonly="readonly"/>
                             </div>
 							<div class="form-group">
 	                        	<label>제목</label>
@@ -36,12 +36,15 @@
                                 <textarea style="resize: none" class="form-control" rows="5" name="content" readonly="readonly">${board.content }</textarea>
                             </div>
                             
-                            <button data-oper='modify' class='btn btn-defult'>Modify</button>
-                            <button data-oper='list' class='btn btn-info'>List</button>
+                            <form id='actionForm' action="/board/list" method='get'>
+								<input type='hidden' name='pageNum' value='${cri.pageNum}'>
+								<input type='hidden' name='amount' value='${cri.amount}'>
+								<input type='hidden' name='bno' value='${board.bno}'>
+							</form>
                             
-                            <form id="operForm">
-                            	<input type="hidden" id="bno" name="bno" value="${board.bno }">
-                            </form>
+                            <button type="button" class='btn btn-defult modBtn' >Modify</button>
+                            <button type="button" class='btn btn-info listBtn' onclick="location.href='/board/list'">list</button>
+                            
 						</div>
 						<!-- /.panel-body -->
 					</div>
@@ -53,24 +56,39 @@
 	<!-- /#wrapper -->
 	
 	<script type="text/javascript">
-		let operForm = $('#operForm');
+		let actionForm = $("#actionForm");	
 		
-		$('button[data-oper="modify"]').on('click', function (e) {
+		$('.listBtn').click(function (e) {
 			e.preventDefault();
-			
-			operForm.attr("action", "/board/modify");
-			operForm.attr("method", "get");
-			operForm.submit();
-		})
+			actionForm.find("input[name='bno']").remove();
+			actionForm.submit();
+		});
 		
-		$('button[data-oper="list"]').on('click', function (e) {
+		$('.modBtn').click(function (e) {
 			e.preventDefault();
+			actionForm.attr("action", "/board/modify");
+			actionForm.submit();
+		});	
+// 		let operForm = $('#operForm');
+		
+// 		$('button[data-oper="modify"]').on('click', function (e) {
+// 			e.preventDefault();
 			
-			operForm.find('#bno').remove();
-			operForm.attr("action", "/board/list");
-			operForm.attr("method", "get");
-			operForm.submit();
-		})
+// 			operForm.attr("action", "/board/modify");
+// 			operForm.attr("method", "get");
+// 			operForm.submit();
+// 		})
+		
+// 		$('button[data-oper="list"]').on('click', function (e) {
+// 		e.preventDefault();
+			
+// 		operForm.find('#bno').remove();
+// 		operForm.attr("action", "/board/list");
+// 		operForm.attr("method", "get");
+// 		operForm.submit();
+//		 })
+		
+		
 	</script>
 	
 	<%@include file="../includes/footer.jsp"%>

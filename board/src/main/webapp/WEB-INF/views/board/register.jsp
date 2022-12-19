@@ -34,8 +34,9 @@
                                     <textarea style="resize: none" class="form-control" rows="5" name="content"></textarea>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-success">글작성</button>
-                                <button type="reset" class="btn btn-danger">다시쓰기</button>
+                                <button type="submit" class="btn btn-success">Write</button>
+                                <button type="reset" class="btn btn-danger">return</button>
+                                <button type="button" class="btn btn-info" onclick="location.href='/board/list'">List</button>
 							</form>
 						</div>
 						<!-- /.panel-body -->

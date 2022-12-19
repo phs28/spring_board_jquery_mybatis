@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.zerock.mapper.BoardMapper;
 import org.zerock.vo.BoardVO;
+import org.zerock.vo.Criteria;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -54,10 +55,26 @@ public class BoardServiceImpl implements BoardService {
 		return false;
 	}
 
+//	@Override
+//	public List<BoardVO> getList() {
+//		
+//		return mapper.getList();
+//	}
+
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(Criteria cri) {
 		
-		return mapper.getList();
+		log.info("Pageing.." + cri);
+		
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("Total.." + cri);
+		
+		return mapper.getTotalCount(cri);
 	}
 	
 	
