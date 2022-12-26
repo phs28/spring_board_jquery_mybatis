@@ -39,6 +39,8 @@
                             <form id='actionForm' action="/board/list" method='get'>
 								<input type='hidden' name='pageNum' value='${cri.pageNum}'>
 								<input type='hidden' name='amount' value='${cri.amount}'>
+								<input type='hidden' name='amount' value='${cri.type}'>
+								<input type='hidden' name='amount' value='${cri.keyword}'>
 								<input type='hidden' name='bno' value='${board.bno}'>
 							</form>
                             
@@ -55,7 +57,11 @@
 	</div>
 	<!-- /#wrapper -->
 	
+	<script type="text/javascript" src="/resources/js/reply.js"></script>
+	
 	<script type="text/javascript">
+	$(document).ready(function () {
+		
 		let actionForm = $("#actionForm");	
 		
 		$('.listBtn').click(function (e) {
@@ -69,6 +75,7 @@
 			actionForm.attr("action", "/board/modify");
 			actionForm.submit();
 		});	
+	});
 // 		let operForm = $('#operForm');
 		
 // 		$('button[data-oper="modify"]').on('click', function (e) {
