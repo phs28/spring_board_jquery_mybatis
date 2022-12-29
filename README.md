@@ -1,1 +1,1 @@
-# spring_board_jquery_mybatis and security login
+# spring_board_mybatis and security login
