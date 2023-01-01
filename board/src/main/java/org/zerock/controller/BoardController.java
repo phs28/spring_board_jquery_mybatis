@@ -32,9 +32,9 @@ public class BoardController {
 		
 		List<BoardVO> list = service.getList(cri);
 		
-		log.info("list.." + list);
-		
 		int total = service.getTotal(cri);
+		
+		log.info("list.." + list);
 		
 		log.info("total.." + total);
 			

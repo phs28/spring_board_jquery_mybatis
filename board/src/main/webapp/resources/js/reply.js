@@ -1,10 +1,13 @@
+/**
+ * 댓글 리스트
+ */
 console.log('Reply Module.....');
 
 let replyService = (function() {
 	
 	function add(reply, callback, error) {
 		console.log('add reply.....');
-		
+
 		$.ajax ({
 			type : 'post',
 			url : '/replies/new',
@@ -20,11 +23,28 @@ let replyService = (function() {
 					error(er);
 				}
 			}
-		})
+		});
 	}
-	
+
+    function getList(param, callback, error) {
+        
+        var bno = prarm.bno;
+        var page = param.page || 1;
+
+        $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+            function (data) {
+                if(callback) {
+                    callback(data);
+                }
+        }).fail(function (xhr, status, err) {
+            if(error) {
+                error();
+            }
+        });
+    }
+
 	return {
-		add:add
+		add:add,
+		getList:getList
 	};
 })();
-

@@ -62,6 +62,18 @@
 	<script type="text/javascript">
 	$(document).ready(function () {
 		
+		console.log("==============");
+		console.log("JS TEST")
+		
+		let bnoValue = '${board.bno}';
+		
+		replyService.getList({bno:bnoValue, page:1}, function (list) {
+			
+			for(var i=0, len = list.length||0; i<len; i++) {
+				console.log(list[i]);
+			}
+		});
+		
 		let actionForm = $("#actionForm");	
 		
 		$('.listBtn').click(function (e) {
