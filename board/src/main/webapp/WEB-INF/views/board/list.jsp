@@ -80,7 +80,7 @@
 									</c:forEach>
 									<c:if test="${pageMaker.next }">
 										<li class="page-link">
-											<a href="${pageMaker.endPage + 1}">next</a>
+											<a href="${pageMaker.endPage + 1}">Next</a>
 										</li>
 									</c:if>
 								</ul>
@@ -193,7 +193,6 @@
 			e.preventDefault();
 
 			searchForm.submit();
-
 		});
 	</script>
 	

@@ -72,7 +72,7 @@ public class ReplyController {
 		
 		int remove = service.remove(rno);
 		
-		return remove == 1 
+		return remove == 1
 				? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}

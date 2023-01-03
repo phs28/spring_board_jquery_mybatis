@@ -67,12 +67,42 @@
 		
 		let bnoValue = '${board.bno}';
 		
-		replyService.getList({bno:bnoValue, page:1}, function (list) {
+// 		replyService.getList({bno:bnoValue, page:1}, function(list) {
 			
-			for(var i=0, len = list.length||0; i<len; i++) {
-				console.log(list[i]);
-			}
+// 			for(var i=0, len = list.length||0; i<len; i++) {
+// 				console.log(list[i]);
+// 			}
+// 		});
+		
+		replyService.get(10, function (data) {
+			console.log(data);
 		});
+		
+// 		replyService.update({
+// 			rno : 21,
+// 			bno : bnoValue,
+// 			reply : 'Modified Reply..'
+// 		}, function (result) {
+// 			alert("수정완료");
+// 		});
+		
+// 		replyService.add(
+// 			{reply:'JS TEST', replyer:'tester', bno:bnoValue}
+// 			,
+// 			function (result) {
+// 				alert("RESULT: " + result);
+// 			}
+// 		);
+		
+// 		replyService.remove(20, function (count) {
+// 			console.log(count);
+			
+// 			if(count == 'success') {
+// 				alert('REMOVED');
+// 			}
+// 		}, function (err) {
+// 			alert('ERROR...');
+// 		});
 		
 		let actionForm = $("#actionForm");	
 		
